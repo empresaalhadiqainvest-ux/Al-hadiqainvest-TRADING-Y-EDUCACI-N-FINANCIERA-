@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Hadiqa Invest | Trading & Educación Financiera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        
+        /* Utilidades Glassmorphism */
+        .glass-nav { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-card:hover { transform: translateY(-8px); transition: all 0.3s ease; border-color: rgba(59, 130, 246, 0.5); box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.5); }
+        
+        /* Fondos con efecto de mercado/trading */
+        .bg-trading-hero {
+            background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .bg-trading-section {
+            background-image: url('https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Animación para el Antivirus */
+        .pulse-dot { animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 relative">
+
+    <!-- Widget de Seguridad Automático -->
+    <div id="security-widget" class="fixed bottom-6 right-6 bg-slate-800/95 border border-slate-600 text-slate-200 px-5 py-3 rounded-full flex items-center gap-3 shadow-2xl z-50 backdrop-blur-md text-xs font-semibold tracking-wide transition-all duration-500">
+        <div id="sec-dot" class="w-2.5 h-2.5 rounded-full bg-blue-500 pulse-dot"></div>
+        <span id="sec-text">Analizando conexión segura...</span>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-40 glass-nav">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter text-blue-400 uppercase">
+                AL-HADIQA<span class="text-slate-300 font-light">INVEST</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 font-semibold text-xs uppercase tracking-widest text-slate-300">
+                <a href="#modulos" class="hover:text-blue-400 transition">Módulos</a>
+                <a href="#mentoria" class="hover:text-blue-400 transition">Mentoría</a>
+                <a href="mailto:empresaalhadiqainvest@gmail.com" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-500 transition flex items-center gap-2 shadow-lg shadow-blue-600/20">
+                    <i class="fas fa-graduation-cap"></i> INSCRIBIRSE
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section con Fondo de Gráficos -->
+    <section class="relative bg-trading-hero pt-40 pb-32 px-6">
+        <!-- Overlay oscuro para resaltar el texto -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-slate-900/80 to-slate-900 z-0"></div>
+        
+        <div class="container mx-auto text-center relative z-10">
+            <span class="inline-block px-4 py-1 border border-blue-400/30 rounded-full text-blue-400 text-xs font-bold mb-6 tracking-widest uppercase bg-blue-900/30 backdrop-blur-md">
+                Trading Institucional & Educación Financiera
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-8 leading-tight tracking-tighter text-white">
+                Domine los Mercados con <br> <span class="text-blue-400 italic">Precisión Estratégica</span>
+            </h1>
+            <p class="text-slate-300 max-w-2xl mx-auto mb-12 text-lg font-light leading-relaxed">
+                Aprenda a analizar los mercados financieros, estructurar planes de inversión sólidos y gestionar su capital con metodologías de alto rendimiento. Supere evaluaciones de fondeo y conviértase en un operador rentable.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="#modulos" class="bg-blue-600 hover:bg-blue-500 text-white px-10 py-5 rounded-2xl font-bold transition shadow-2xl shadow-blue-600/30 flex items-center justify-center gap-3">
+                    <i class="fas fa-chart-line"></i> EXPLORAR TEMARIO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulos de Estudio (Fondo Oscuro Sólido) -->
+    <section id="modulos" class="py-24 bg-slate-900 container mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-extrabold text-white tracking-tight">Pilares de Nuestra Educación</h2>
+            <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Conocimiento estructurado para dominar la acción del precio y la psicología del inversor.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="glass-card p-10 rounded-[2rem]">
+                <div class="w-14 h-14 bg-blue-900/50 border border-blue-500/30 text-blue-400 rounded-2xl flex items-center justify-center mb-8 text-2xl">
+                    <i class="fas fa-search-dollar"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-4 text-white">Análisis Técnico</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Lectura avanzada de gráficos, acción del precio, zonas de liquidez y estructuras de mercado en activos bursátiles y criptográficos.</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2rem]">
+                <div class="w-14 h-14 bg-indigo-900/50 border border-indigo-500/30 text-indigo-400 rounded-2xl flex items-center justify-center mb-8 text-2xl">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-4 text-white">Gestión Estratégica de Capital</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Diseño de planes de trading, dimensionamiento de posiciones y metodologías de mitigación de riesgo para proteger su portafolio.</p>
+            </div>
+
+            <div class="glass-card p-10 rounded-[2rem]">
+                <div class="w-14 h-14 bg-emerald-900/50 border border-emerald-500/30 text-emerald-400 rounded-2xl flex items-center justify-center mb-8 text-2xl">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3 class="font-bold text-xl mb-4 text-white">Preparación para Fondeo</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Capacitación específica orientada a superar evaluaciones y retos de firmas de fondeo para operar con capital institucional.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección Intermedia con Fondo Parallax -->
+    <section class="relative bg-trading-section py-24 border-y border-slate-700">
+        <!-- Overlay oscuro para la sección -->
+        <div class="absolute inset-0 bg-slate-900/85 z-0"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h3 class="text-sm font-bold text-blue-400 uppercase tracking-widest mb-10">Operativa en Mercados Reales</h3>
+            <div class="flex flex-wrap justify-center gap-12 md:gap-24 opacity-80 transition-all duration-500 text-white">
+                <div class="flex flex-col items-center gap-3">
+                    <i class="fab fa-bitcoin text-5xl text-slate-300"></i>
+                    <span class="text-xs font-bold tracking-widest uppercase">Criptoactivos</span>
+                </div>
+                <div class="flex flex-col items-center gap-3">
+                    <i class="fas fa-euro-sign text-5xl text-slate-300"></i>
+                    <span class="text-xs font-bold tracking-widest uppercase">Forex</span>
+                </div>
+                <div class="flex flex-col items-center gap-3">
+                    <i class="fas fa-oil-can text-5xl text-slate-300"></i>
+                    <span class="text-xs font-bold tracking-widest uppercase">Materias Primas</span>
+                </div>
+                <div class="flex flex-col items-center gap-3">
+                    <i class="fas fa-chart-pie text-5xl text-slate-300"></i>
+                    <span class="text-xs font-bold tracking-widest uppercase">Índices Bursátiles</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabla de Inversión Educativa (Manteniendo la estructura corporativa) -->
+    <section id="mentoria" class="py-24 bg-slate-900 container mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-extrabold text-white tracking-tight">Planes de Formación</h2>
+            <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Programas educativos estructurados para acompañarle desde los conceptos básicos hasta la consistencia financiera.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-center">
+            
+            <!-- Curso Intensivo -->
+            <div class="glass-card p-10 rounded-[2rem]">
+                <h3 class="font-bold text-2xl text-white mb-2">Fundamentos de Trading</h3>
+                <p class="text-slate-400 text-sm mb-6">Iniciación y bases del mercado</p>
+                <ul class="space-y-4 mb-8 text-slate-300 text-sm">
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-500"></i> Introducción a los Mercados Financieros</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-500"></i> Uso de plataformas de análisis</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-500"></i> Conceptos básicos de riesgo</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-emerald-500"></i> Material en formato digital</li>
+                </ul>
+                <a href="mailto:empresaalhadiqainvest@gmail.com?subject=Inscripción: Fundamentos de Trading" class="block w-full text-center border-2 border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white font-bold py-4 rounded-xl transition">
+                    Solicitar Temario
+                </a>
+            </div>
+
+            <!-- Mentoría Avanzada (Destacado) -->
+            <div class="relative bg-gradient-to-br from-blue-900 to-slate-900 text-white p-12 rounded-[2.5rem] shadow-2xl transform md:-translate-y-4 border border-blue-500/50">
+                <div class="absolute top-0 right-10 transform -translate-y-1/2 bg-gradient-to-r from-blue-400 to-indigo-500 text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase">
+                    Recomendado
+                </div>
+                <h3 class="font-bold text-2xl text-blue-300 mb-2">Mentoría Estratégica</h3>
+                <p class="text-slate-300 text-sm mb-6">De la teoría a la rentabilidad operativa</p>
+                <ul class="space-y-4 mb-8 text-slate-200 text-sm">
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-blue-300"></i> Estrategias de Acción del Precio Avanzada</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-blue-300"></i> Psicotrading y Control Emocional</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-blue-300"></i> Preparación estructurada para Fondeo</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-blue-300"></i> Revisión de Backtesting</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check text-blue-300"></i> Acompañamiento y seguimiento</li>
+                </ul>
+                <a href="mailto:empresaalhadiqainvest@gmail.com?subject=Inscripción: Mentoría Estratégica" class="block w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-blue-600/30">
+                    Aplicar a la Mentoría
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer & Licencia (Uniformidad) -->
+    <footer class="bg-slate-950 py-16 border-t border-slate-800 relative z-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
+                <div class="max-w-md">
+                    <div class="text-2xl font-black text-blue-400 mb-4 tracking-tighter uppercase">AL-HADIQA INVEST</div>
+                    <p class="text-slate-400 text-sm leading-relaxed font-light mb-4">
+                        Formación de alto nivel en análisis de mercados y gestión de capital, operando bajo marcos de calidad internacional. Una división educativa del holding central.
+                    </p>
+                    <div class="p-4 bg-slate-900 rounded-xl border border-slate-700">
+                        <h4 class="text-xs font-bold text-slate-300 uppercase mb-2"><i class="fas fa-gavel text-slate-500 mr-2"></i>Aviso Legal y de Riesgo</h4>
+                        <p class="text-[11px] text-slate-500 leading-tight">
+                            El material proporcionado es exclusivamente con fines educativos. El trading en mercados financieros conlleva un alto nivel de riesgo. Queda estrictamente prohibida la reproducción o distribución no autorizada del material académico entregado sin el consentimiento previo por escrito de la matriz educadora.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xs uppercase tracking-widest text-slate-500 mb-6">Contacto Directo</h4>
+                    <ul class="text-sm space-y-3 font-semibold text-slate-300">
+                        <li>
+                            <a href="mailto:empresaalhadiqainvest@gmail.com" class="hover:text-blue-400 flex items-center gap-3 p-3 bg-slate-900 border border-slate-800 rounded-lg transition">
+                                <i class="fas fa-envelope text-blue-500 text-lg"></i> empresaalhadiqainvest@gmail.com
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-3 p-3 text-slate-400">
+                            <i class="fas fa-map-marker-alt text-lg"></i> Caracas, Venezuela
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-800 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-[10px] uppercase font-bold tracking-[0.2em]">
+                    © 2026 AL-HADIQA INVEST. Todos los derechos reservados.
+                </p>
+                <div class="flex gap-6 opacity-30 text-white">
+                    <i class="fas fa-shield-alt text-2xl"></i>
+                    <i class="fas fa-globe text-2xl"></i>
+                    <i class="fas fa-chart-bar text-2xl"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script de Seguridad en Tiempo Real (Uniformidad) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const secText = document.getElementById('sec-text');
+            const secDot = document.getElementById('sec-dot');
+            const widget = document.getElementById('security-widget');
+
+            setTimeout(() => {
+                secText.innerText = "Verificando cifrado de la plataforma...";
+            }, 1500);
+
+            setTimeout(() => {
+                secText.innerText = "Conexión Segura. Plataforma verificada.";
+                secDot.classList.remove('bg-blue-500', 'pulse-dot');
+                secDot.classList.add('bg-emerald-500');
+                widget.classList.replace('border-slate-600', 'border-emerald-500/50');
+                widget.classList.add('bg-emerald-900/20');
+                
+                // Ocultar widget suavemente
+                setTimeout(() => {
+                    widget.classList.add('opacity-0', 'translate-y-5');
+                    setTimeout(() => widget.style.display = "none", 500);
+                }, 8000);
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
