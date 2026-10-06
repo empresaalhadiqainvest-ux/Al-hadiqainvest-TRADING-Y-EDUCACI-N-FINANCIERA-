@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== Seguridad: política de contenido restrictiva (Actualizada para API en tiempo real) ===== -->
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none';
+               img-src 'self' https: data:;
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+               font-src https://fonts.gstatic.com;
+               connect-src 'self' https: wss:;
+               script-src 'self' 'unsafe-inline' https://s3.tradingview.com;
+               object-src 'none';
+               frame-src 'self' https://s3.tradingview.com https://www.tradingview-widget.com;
+               frame-ancestors 'none';
+               base-uri 'self';
+               form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+<meta name="description" content="AL-HADIQAINVEST — Trading Institucional y estrategias Smart Money Concepts. Order Blocks, FVG y barridos de liquidez con ejecución de grado institucional.">
+<meta name="author" content="Smith Business Solutions">
+<meta name="theme-color" content="#070b14">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trading Institucional | AL-HADIQAINVEST">
+<meta property="og:description" content="Deja de operar como minorista. Smart Money Concepts, gestión de riesgo y ejecución institucional.">
+<title>Trading Institucional | AL-HADIQAINVEST</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   AL-HADIQAINVEST · Trading Institucional
+   CSS único, sin frameworks ni JavaScript
+   1. Tokens · 2. Base y accesibilidad · 3. Layout · 4. Componentes
+   5. Secciones · 6. Responsive
+   ========================================================================== */
+
+/* ---------- 1. Tokens ---------- */
+:root{
+  --ink:#070b14;
+  --surface:#0a0f1c;
+  --card:#111827;
+  --card-2:#161f33;
+  --line:rgba(148,163,184,.14);
+  --line-strong:rgba(148,163,184,.3);
+  --text:#f3f4f6;
+  --muted:#9ca3af;
+  --muted-2:#6b7280;
+  --accent:#3b82f6;
+  --accent-hover:#2563eb;
+  --gold:#fbbf24;
+  --green:#10b981;
+  --red:#ef4444;
+
+  --font-head:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,monospace;
+
+  --wrap:1240px;
+  --gutter:clamp(1.25rem,4vw,2.5rem);
+  --radius:18px;
+  --radius-sm:12px;
+  --header-h:132px;
+
+  --shadow:0 30px 60px -28px rgba(0,0,0,.8);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+/* ---------- 2. Base y accesibilidad ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--header-h);-webkit-text-size-adjust:100%}
+body{
+  margin:0;font-family:var(--font-body);font-weight:300;line-height:1.7;
+  color:var(--text);background:var(--surface);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin:0}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+strong{font-weight:600;color:#e5e7eb}
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{
+  position:absolute;top:.5rem;left:.5rem;z-index:300;transform:translateY(-200%);
+  background:var(--gold);color:var(--ink);padding:.65rem 1.1rem;border-radius:999px;
+  font-weight:600;font-size:.85rem;transition:transform .25s var(--ease);
+}
+.skip-link:focus{transform:translateY(0)}
+
+*{scrollbar-width:thin;scrollbar-color:#1f2937 var(--ink)}
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-track{background:var(--ink)}
+*::-webkit-scrollbar-thumb{background:#1f2937;border-radius:99px}
+
+/* ---------- 3. Layout ---------- */
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.section{position:relative;padding-block:clamp(4.5rem,9vw,7rem);border-top:1px solid var(--line)}
+.section--card{background:var(--card)}
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(2.5rem,5vw,4.5rem);align-items:center}
+.stack>*+*{margin-top:1.4rem}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--font-head);font-size:.72rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.7}
+
+.h-display{font-size:clamp(2.3rem,5.8vw,3.9rem);font-weight:800}
+.h-section{font-size:clamp(1.7rem,3.4vw,2.4rem)}
+.h-sub{font-size:clamp(1.2rem,2.2vw,1.5rem);font-weight:700}
+.h-card{font-size:1.05rem;font-weight:700}
+.lead{font-size:clamp(1rem,1.5vw,1.15rem);color:#d1d5db;max-width:58ch}
+.body-text{color:var(--muted);max-width:60ch}
+.text-accent{color:var(--accent)}
+.gradient-text{
+  background:linear-gradient(100deg,#60a5fa,var(--accent) 55%,#93c5fd);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.section-head{max-width:60ch;margin-inline:auto;text-align:center;margin-bottom:clamp(2.5rem,5vw,4rem);display:grid;gap:1rem;justify-items:center}
+.section-head p{color:var(--muted)}
+
+/* ---------- 4. Componentes ---------- */
+
+/* Botones */
+.btn{
+  --btn-bg:var(--accent);--btn-fg:#fff;--btn-ring:rgba(59,130,246,.55);
+  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.9rem 1.9rem;border:1px solid transparent;border-radius:var(--radius-sm);
+  background:var(--btn-bg);color:var(--btn-fg);
+  font-family:var(--font-head);font-size:.92rem;font-weight:600;
+  cursor:pointer;text-align:center;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),background-color .3s var(--ease),border-color .3s var(--ease);
+}
+.btn:hover{background:var(--accent-hover);transform:translateY(-3px);box-shadow:0 16px 32px -14px var(--btn-ring)}
+.btn:active{transform:translateY(-1px)}
+.btn .arrow{transition:transform .3s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn--lg{padding:1.05rem 2.3rem;font-size:1.02rem}
+.btn--ghost{--btn-bg:transparent;--btn-fg:var(--text);--btn-ring:rgba(148,163,184,.35);border-color:var(--line-strong)}
+.btn--ghost:hover{background:rgba(148,163,184,.08);border-color:var(--muted)}
+.btn--soft{--btn-bg:#1f2937;--btn-fg:var(--text);--btn-ring:rgba(148,163,184,.4);width:100%}
+.btn--soft:hover{background:#374151}
+
+/* Resplandor del CTA principal */
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(59,130,246,.45)}50%{box-shadow:0 0 28px 4px rgba(59,130,246,.35)}}
+.btn--pulse{animation:glow 3.2s ease-in-out infinite}
+
+/* Cristal */
+.glass{
+  background:rgba(17,24,39,.72);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.06);
+}
+
+/* Barra superior de confianza */
+.topbar{
+  position:relative;z-index:110;
+  background:var(--card);border-bottom:1px solid var(--line);
+  font-size:.76rem;color:var(--muted);
+}
+.topbar-inner{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;align-items:center;justify-content:space-between;padding-block:.6rem}
+.trust{display:flex;align-items:center;gap:.45rem;color:var(--green);font-weight:500}
+.trust svg{width:15px;height:15px;flex:0 0 auto}
+.topbar .note{color:var(--muted-2)}
+.rating{display:flex;align-items:center;gap:.5rem}
+.rating .name{color:#fff;font-weight:600;font-family:var(--font-head)}
+.rating .stars{color:var(--green);letter-spacing:.06em}
+
+/* Header */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;min-height:72px}
+.brand{font-family:var(--font-head);font-size:clamp(1.05rem,2.3vw,1.3rem);font-weight:800;letter-spacing:.06em;color:#fff;white-space:nowrap}
+.brand span{color:var(--gold)}
+.nav{display:flex;align-items:center;gap:.3rem}
+.nav>a,.menu>summary{
+  padding:.5rem .85rem;border-radius:999px;font-size:.89rem;font-weight:500;color:#d1d5db;
+  transition:color .25s var(--ease),background-color .25s var(--ease);
+}
+.nav>a:hover,.menu>summary:hover{color:var(--accent);background:rgba(59,130,246,.1)}
+.nav .btn{padding:.6rem 1.35rem;font-size:.85rem;margin-left:.4rem}
+
+/* Submenú accesible */
+.menu{position:relative}
+.menu>summary{
+  display:inline-flex;align-items:center;gap:.35rem;cursor:pointer;list-style:none;
+}
+.menu>summary::-webkit-details-marker{display:none}
+.menu>summary .chev{width:14px;height:14px;transition:transform .25s var(--ease)}
+.menu[open]>summary{color:var(--accent);background:rgba(59,130,246,.12)}
+.menu[open]>summary .chev{transform:rotate(180deg)}
+.menu__panel{
+  position:absolute;right:0;top:calc(100% + .5rem);min-width:230px;z-index:120;
+  background:var(--card);border:1px solid var(--line-strong);border-radius:var(--radius-sm);
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.menu__panel a{display:block;padding:.85rem 1.1rem;font-size:.88rem;color:#d1d5db;transition:background-color .2s var(--ease),color .2s var(--ease)}
+.menu__panel a:hover{background:#1f2937;color:var(--accent)}
+.menu__panel a.is-primary{background:var(--accent);color:#fff;font-weight:600}
+.menu__panel a.is-primary:hover{background:var(--accent-hover);color:#fff}
+
+/* Menú móvil */
+.nav-toggle{position:absolute;opacity:0;pointer-events:none}
+.burger{
+  display:none;width:46px;height:46px;flex:0 0 auto;align-items:center;justify-content:center;
+  border:1px solid var(--line-strong);border-radius:12px;background:rgba(148,163,184,.06);cursor:pointer;
+}
+.burger span{position:relative;display:block;width:20px;height:2px;background:var(--text);border-radius:2px;transition:.3s var(--ease)}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--text);border-radius:2px;transition:.3s var(--ease)}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+.nav-toggle:focus-visible+.burger{outline:2px solid var(--gold);outline-offset:3px}
+.nav-toggle:checked+.burger span{background:transparent}
+.nav-toggle:checked+.burger span::before{top:0;transform:rotate(45deg)}
+.nav-toggle:checked+.burger span::after{top:0;transform:rotate(-45deg)}
+
+/* Insignias y píldoras */
+.badge{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.42rem .95rem;border-radius:999px;
+  background:rgba(59,130,246,.14);border:1px solid rgba(59,130,246,.32);
+  color:#93c5fd;font-family:var(--font-head);font-size:.73rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+}
+.badge--gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.tag{display:inline-block;padding:.3rem .7rem;border-radius:6px;font-size:.72rem;font-weight:600;font-family:var(--font-head)}
+.tag--accent{background:var(--accent);color:#fff}
+.tag--red{background:var(--red);color:#fff}
+.tag--green{background:rgba(16,185,129,.18);border:1px solid rgba(16,185,129,.35);color:var(--green)}
+
+/* Lista con check */
+.checklist{display:grid;gap:.7rem}
+.checklist li{display:flex;gap:.65rem;align-items:flex-start;font-size:.93rem;color:#d1d5db}
+.checklist svg{width:18px;height:18px;flex:0 0 auto;margin-top:.28rem;color:var(--green)}
+.inline-facts{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;font-size:.86rem;color:var(--muted)}
+.inline-facts li{display:flex;align-items:center;gap:.45rem}
+.inline-facts svg{width:16px;height:16px;color:var(--green)}
+
+/* Tarjeta de dato */
+.stat{
+  padding:1.3rem;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);
+  transition:border-color .3s var(--ease),transform .3s var(--ease);
+}
+.stat:hover{border-color:rgba(59,130,246,.45);transform:translateY(-4px)}
+.stat__value{font-family:var(--font-head);font-size:1.7rem;font-weight:800;color:var(--accent);line-height:1.1;margin-bottom:.55rem}
+.stat__label{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.25rem}
+.stat__hint{font-size:.78rem;color:var(--muted-2)}
+.stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+
+/* Paso numerado */
+.step-head{display:flex;align-items:center;gap:1rem;margin-bottom:.4rem}
+.step-num{
+  display:grid;place-items:center;width:44px;height:44px;flex:0 0 auto;
+  border-radius:50%;background:rgba(59,130,246,.16);border:1px solid rgba(59,130,246,.35);
+  font-family:var(--font-head);font-weight:800;color:var(--accent);
+}
+
+/* Marco de imagen */
+.frame{position:relative;border:1px solid var(--line-strong);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--card)}
+.frame img{width:100%;height:clamp(240px,32vw,320px);object-fit:cover;transition:transform .6s var(--ease)}
+.frame:hover img{transform:scale(1.05)}
+.frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85),transparent 55%);pointer-events:none}
+.frame__caption{position:absolute;bottom:1rem;left:1rem;z-index:1}
+
+/* Panel del gráfico (SVG) */
+.widget{position:relative;padding:1.5rem;border-radius:var(--radius);box-shadow:var(--shadow)}
+.widget__flag{position:absolute;top:-.85rem;right:1.25rem;z-index:2}
+.widget__head{display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;justify-content:space-between;padding-bottom:1rem;margin-bottom:1.25rem;border-bottom:1px solid var(--line)}
+.widget__pair{font-family:var(--font-head);font-size:1.15rem;font-weight:700;color:#fff}
+.widget__pair small{display:block;font-family:var(--font-body);font-size:.78rem;font-weight:400;color:var(--muted-2)}
+.widget__delta{display:flex;align-items:center;gap:.35rem;font-family:var(--font-head);font-weight:700;color:var(--green)}
+.widget__delta svg{width:16px;height:16px}
+.chart{position:relative;border:1px solid var(--line);border-radius:var(--radius-sm);background:#0b1220;overflow:hidden;margin-bottom:1rem}
+.chart svg{display:block;width:100%;height:auto}
+.chart__note{position:absolute;bottom:.6rem;left:.75rem;font-family:var(--font-mono);font-size:.68rem;color:var(--muted-2)}
+.chart__tp{position:absolute;top:.75rem;right:.75rem;padding:.25rem .55rem;border-radius:6px;font-family:var(--font-mono);font-size:.7rem;background:rgba(16,185,129,.16);border:1px solid rgba(16,185,129,.35);color:var(--green)}
+
+/* Tabla de resultados */
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;min-width:520px;font-size:.9rem}
+th,td{padding:.95rem 1.15rem;text-align:left;border-bottom:1px solid var(--line)}
+thead th{
+  background:var(--card-2);font-family:var(--font-head);font-size:.72rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:rgba(148,163,184,.04)}
+td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.pos{color:var(--green);font-weight:600}
+.neg{color:var(--red);font-weight:600}
+
+/* Aviso de riesgo */
+.notice{
+  padding:1.4rem 1.6rem;border-radius:var(--radius-sm);
+  background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.28);
+  font-size:.84rem;color:#d1d5db;
+}
+.notice h2,.notice h3{font-size:.78rem;font-family:var(--font-head);letter-spacing:.14em;text-transform:uppercase;color:#fca5a5;margin-bottom:.6rem}
+
+/* CTA final */
+.cta-band{
+  position:relative;overflow:hidden;text-align:center;
+  padding:clamp(3rem,7vw,4.5rem) clamp(1.5rem,5vw,4rem);
+  border:1px solid rgba(59,130,246,.28);border-radius:var(--radius);
+  background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.22),transparent 65%),var(--card);
+  display:grid;gap:1.35rem;justify-items:center;
+}
+
+/* Footer */
+.site-footer{background:#05080f;border-top:1px solid var(--line);padding-top:clamp(3rem,6vw,4.5rem)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(2rem,4vw,3rem)}
+.footer-brand p{color:var(--muted-2);font-size:.88rem;margin-top:1rem;max-width:36ch}
+.footer-title{font-family:var(--font-head);font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1.05rem}
+.footer-links{display:grid;gap:.6rem}
+.footer-links a{color:var(--muted-2);font-size:.88rem;transition:color .25s var(--ease),padding-left .25s var(--ease)}
+.footer-links a:hover{color:var(--gold);padding-left:.3rem}
+.footer-legal{margin-top:clamp(2.5rem,5vw,3.5rem)}
+.footer-bottom{
+  margin-top:1.75rem;padding-block:1.6rem;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;align-items:center;justify-content:space-between;
+  font-size:.81rem;color:var(--muted-2);
+}
+.footer-bottom strong{color:var(--muted);font-weight:600}
+.footer-credit{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem}
+.footer-credit .sep{opacity:.4}
+
+/* ---------- 5. Secciones ---------- */
+.hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  padding-block:clamp(4rem,9vw,7rem);
+  background-image:url("https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop");
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  background-color:var(--ink);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(7,11,20,.9),rgba(7,11,20,.82) 45%,var(--surface)),
+             radial-gradient(ellipse 60% 50% at 20% 30%,rgba(59,130,246,.2),transparent 70%);
+}
+.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,5vw,4rem);align-items:center}
+.hero__copy{display:grid;gap:1.6rem;justify-items:start}
+
+.steps{display:grid;gap:clamp(3.5rem,7vw,5.5rem)}
+
+/* ---------- 6. Responsive ---------- */
+@media (max-width:1024px){
+  .hero__grid{grid-template-columns:1fr}
+  .widget{max-width:560px}
+}
+@media (max-width:900px){
+  :root{--header-h:120px}
+  .burger{display:flex}
+  .nav{
+    position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:.2rem;
+    padding:.75rem var(--gutter) 1.5rem;
+    background:rgba(10,15,28,.98);border-bottom:1px solid var(--line);
+    max-height:0;opacity:0;visibility:hidden;overflow:hidden;
+    transition:max-height .4s var(--ease),opacity .3s var(--ease),visibility .3s;
+  }
+  .nav>a,.menu>summary{padding:.85rem 1rem;font-size:1rem;border-radius:var(--radius-sm)}
+  .nav .btn{margin:.5rem 0 0}
+  .nav-toggle:checked~.nav{max-height:620px;opacity:1;visibility:visible;overflow:visible}
+  .menu__panel{position:static;margin-top:.4rem;width:100%;box-shadow:none}
+}
+@media (max-width:760px){
+  .split{grid-template-columns:1fr}
+  .split--flip .frame{order:-1}
+  .stat-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero{background-attachment:scroll}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .btn:hover,.stat:hover{transform:none}
+  .frame:hover img{transform:none}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+<!-- ===================== BARRA DE CONFIANZA ===================== -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <p class="trust">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+      </svg>
+      Conexión segura SSL 256-bit
+      <span class="note">&nbsp;· Entorno de grado institucional</span>
+    </p>
+    <p class="rating">
+      <span class="name">Trustpilot</span>
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <span>4.8 / 5</span>
+    </p>
+  </div>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header glass">
+  <div class="wrap header-inner">
+    <a class="brand" href="#" aria-label="AL-HADIQAINVEST, inicio">AL-HADIQA<span>INVEST</span></a>
+
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-labelledby="nav-toggle-label">
+    <label class="burger" id="nav-toggle-label" for="nav-toggle" role="button" aria-label="Abrir o cerrar el menú de navegación"><span></span></label>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#estrategias">Estrategias SMC</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#broker">Broker Regulado</a>
+
+      <details class="menu">
+        <summary>
+          Comunidad
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </summary>
+        <div class="menu__panel">
+          <a href="index.html">Ecosistema Digital</a>
+          <!-- Conexión segura y optimizada hacia la página de unete -->
+          <a class="is-primary" href="unete.html">Únete a Nosotros</a>
+        </div>
+      </details>
+
+      <a class="btn" href="https://one.justmarkets.link/a/kgi9s02uqu" target="_blank" rel="noopener noreferrer sponsored">Abrir Cuenta Real</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== API: CINTA DE COTIZACIONES EN TIEMPO REAL ===================== -->
+<div class="tradingview-widget-container" style="border-bottom: 1px solid var(--line); background: var(--surface);">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
+    { "proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100" },
+    { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
+    { "proName": "OANDA:XAUUSD", "title": "Oro" },
+    { "proName": "TVC:DXY", "title": "Índice Dólar" },
+    { "proName": "BINANCE:BTCUSD", "title": "Bitcoin" }
+  ],
+  "showSymbolLogo": true,
+  "colorTheme": "dark",
+  "isTransparent": true,
+  "displayMode": "adaptive",
+  "locale": "es"
+  }
+  </script>
+</div>
+
+<main id="contenido">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="badge">Partnership oficial AL-HADIQAINVEST</p>
+        <h1 class="h-display">
+          Domina el Mercado con<br>
+          <span class="gradient-text">Trading Institucional</span>
+        </h1>
+        <p class="lead">
+          Deja de operar como minorista. Aplica Smart Money Concepts (SMC) e indicadores avanzados en un
+          entorno de ejecución ultrarrápida, con spreads desde 0.0 pips y apalancamiento flexible.
+        </p>
+
+        <p>
+          <a class="btn btn--lg btn--pulse" href="https://one.justmarkets.link/a/kgi9s02uqu" target="_blank" rel="noopener noreferrer sponsored">
+            Operar con JustMarkets <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </p>
+
+        <ul class="inline-facts">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Ejecución STP/ECN
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Retiros rápidos
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Soporte 24/5
+          </li>
+        </ul>
+      </div>
+
+      <!-- Panel de análisis (gráfico SVG propio, sin imágenes externas) -->
+      <aside class="widget glass" aria-label="Ejemplo de análisis técnico">
+        <p class="badge badge--gold widget__flag">Top broker 2026</p>
+
+        <div class="widget__head">
+          <h2 class="widget__pair">XAUUSD <small>Oro vs Dólar</small></h2>
+          <p class="widget__delta">
+            +12.4%
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </p>
+        </div>
+
+        <div class="chart">
+          <svg viewBox="0 0 420 240" role="img" aria-label="Gráfico representativo de orden block y liquidez">
+            <!-- Grid -->
+            <path d="M0 60h420 M0 120h420 M0 180h420" stroke="rgba(148,163,184,.08)" stroke-dasharray="4 4" fill="none"/>
+            <path d="M84 0v240 M168 0v240 M252 0v240 M336 0v240" stroke="rgba(148,163,184,.08)" stroke-dasharray="4 4" fill="none"/>
+
+            <!-- Bloque de órdenes institucional -->
+            <rect x="50" y="150" width="60" height="40" fill="rgba(59,130,246,.1)"/>
+            <rect x="50" y="150" width="2" height="40" fill="#3b82f6"/>
+            <text x="56" y="182" font-family="monospace" font-size="10" fill="#3b82f6" font-weight="600">ORDER BLOCK (OB)</text>
+
+            <!-- Curva de precio SMC -->
+            <path d="M0 160 C40 160, 60 170, 80 170 C110 170, 140 80, 180 80 C210 80, 240 140, 270 110 C300 80, 340 100, 370 70 C400 40, 420 40, 420 40"
+                  fill="none" stroke="#e5e7eb" stroke-width="2.5" stroke-linejoin="round"/>
+
+            <!-- Liquidity sweep (BOS / ChoCh) -->
+            <path d="M120 120 L220 120" stroke="#ef4444" stroke-dasharray="4 4" fill="none"/>
+            <text x="140" y="112" font-family="monospace" font-size="10" fill="#ef4444" font-weight="600">CHoCH / LIQ. SWEEP</text>
+            <circle cx="270" cy="110" r="4" fill="#fbbf24"/>
+            <text x="280" y="113" font-family="monospace" font-size="10" fill="#fbbf24" font-weight="600">FVG</text>
+          </svg>
+          <span class="chart__note">Gráfico ilustrativo M15</span>
+          <span class="chart__tp">TARGET (TP)</span>
+        </div>
+        <p class="stat__hint">No operes rupturas falsas, opera zonas de ineficiencia y rastro institucional (Smart Money).</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================== API: EVENTOS QUE MUEVEN EL MERCADO ===================== -->
+  <section class="section section--card" id="calendario-macro">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Información en Tiempo Real</p>
+        <h2 class="h-section">Eventos Macroeconómicos que <span class="text-accent">Mueven el Mercado</span></h2>
+        <p>
+          Anticípate a la volatilidad. Datos institucionales y reportes financieros en tiempo real que impactan la liquidez y la dirección del precio de los activos.
+        </p>
+      </div>
+      <!-- Widget de Calendario Económico en Tiempo Real -->
+      <div class="tradingview-widget-container" style="border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--surface); min-height: 400px;">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+        {
+        "colorTheme": "dark",
+        "isTransparent": true,
+        "width": "100%",
+        "height": "500",
+        "locale": "es",
+        "importanceFilter": "-1,0,1",
+        "currencyFilter": "USD,EUR,GBP,JPY,CAD,CHF,AUD,NZD"
+        }
+        </script>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ESTRATEGIAS SMC ===================== -->
+  <section class="section" id="estrategias">
+    <div class="wrap split">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1642543492481-44e81e391452?q=80&w=2070&auto=format&fit=crop" alt="Pantalla mostrando gráficos de velas japonesas y un análisis de liquidez en TradingView." loading="lazy">
+        <p class="frame__caption tag tag--accent">Nivel 01</p>
+      </div>
+      <div class="stack">
+        <p class="eyebrow">Institucional vs Retail</p>
+        <h2 class="h-section">Deja de ser la liquidez de los grandes fondos</h2>
+        <p class="body-text">
+          El mercado está diseñado para cazar *Stop Losses* minoristas (retail). Nuestro enfoque te enseña a identificar 
+          dónde el dinero institucional (Smart Money) deja sus huellas antes de hacer un movimiento explosivo.
+        </p>
+        <ul class="checklist" style="margin-top:1rem">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <strong>Order Blocks (OB):</strong> Identifica dónde los bancos acumularon órdenes.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <strong>Fair Value Gaps (FVG):</strong> Opera ineficiencias del precio para entradas de francotirador.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <strong>Inducement (Inducción):</strong> Evita entrar en falsos rompimientos antes del verdadero BO.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTADOS & EJECUCIÓN ===================== -->
+  <section class="section section--card" id="resultados">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Ejecución Profesional</p>
+        <h2 class="h-section">Condiciones de Trading de Alto Nivel</h2>
+        <p>No basta con tener una estrategia rentable; necesitas un entorno donde tus órdenes se ejecuten sin fricción, sin requotes y con latencia ultrabaja.</p>
+      </div>
+
+      <div class="split split--flip">
+        <div class="stack">
+          <h3 class="h-sub">Transparencia ECN</h3>
+          <p class="body-text">
+            Nuestros traders operan con cuentas Raw Spread. Las comisiones están estandarizadas y tus órdenes van directo 
+            a los proveedores de liquidez tier-1, protegiendo tu análisis de manipulaciones del broker.
+          </p>
+          
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Tabla de spreads promedio por activo">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Activo / Par</th>
+                  <th scope="col">Spread Prom.</th>
+                  <th scope="col">Comisión (Lote)</th>
+                  <th scope="col">Swap Corto</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>EUR/USD</strong></td>
+                  <td class="num pos">0.0 pips</td>
+                  <td class="num">$3.00</td>
+                  <td class="num pos">0.45</td>
+                </tr>
+                <tr>
+                  <td><strong>GBP/JPY</strong></td>
+                  <td class="num pos">0.2 pips</td>
+                  <td class="num">$3.00</td>
+                  <td class="num neg">-1.20</td>
+                </tr>
+                <tr>
+                  <td><strong>XAU/USD</strong></td>
+                  <td class="num pos">0.8 pips</td>
+                  <td class="num">$3.00</td>
+                  <td class="num neg">-2.10</td>
+                </tr>
+                <tr>
+                  <td><strong>US100</strong></td>
+                  <td class="num pos">1.0 pts</td>
+                  <td class="num">Cero</td>
+                  <td class="num neg">-3.50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat">
+            <p class="stat__value">&lt; 10ms</p>
+            <p class="stat__label">Latencia de ejecución</p>
+            <p class="stat__hint">En servidores NY4 (Equinix), vital para Scalping y HFT.</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">1:3000</p>
+            <p class="stat__label">Apalancamiento Max</p>
+            <p class="stat__hint">Uso responsable. Libera margen para gestionar múltiples posiciones.</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">0%</p>
+            <p class="stat__label">Comisiones de retiro</p>
+            <p class="stat__hint">Retiros aprobados el mismo día vía Crypto, Skrill o Transferencia.</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">A+</p>
+            <p class="stat__label">Liquidez</p>
+            <p class="stat__hint">Sin límite de volumen. Perfecto para cuentas financiadas o fondeos altos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EL BROKER ===================== -->
+  <section class="section" id="broker">
+    <div class="wrap split">
+      <div class="frame">
+        <img src="https://images.unsplash.com/photo-1590283603385-18ffb2a404f7?q=80&w=2070&auto=format&fit=crop" alt="Gráficos de liquidez e indicadores financieros abstractos en azul." loading="lazy">
+        <p class="frame__caption tag tag--green">Regulado y Seguro</p>
+      </div>
+      <div class="stack">
+        <p class="eyebrow">JustMarkets x AL-HADIQA</p>
+        <h2 class="h-section">Por qué elegimos JustMarkets</h2>
+        <p class="body-text">
+          Tras auditar docenas de corredores, JustMarkets demostró el mejor ecosistema para estrategias institucionales (SMC). 
+          Protección contra saldo negativo, fondos segregados en bancos de primer nivel y auditorías constantes.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-head">
+              <span class="step-num">1</span>
+              <h3 class="h-card">Regulación Multijurisdiccional</h3>
+            </div>
+            <p class="body-text" style="font-size:.9rem;padding-left:3.75rem">Licencias FCA (UK), CySEC (Europa), FSA y FSC. Tu capital descansa en un entorno de máxima legalidad.</p>
+          </div>
+          <div class="step">
+            <div class="step-head">
+              <span class="step-num">2</span>
+              <h3 class="h-card">Tipos de Cuenta Optimizadas</h3>
+            </div>
+            <p class="body-text" style="font-size:.9rem;padding-left:3.75rem">Recomendamos la cuenta <strong>Raw Spread</strong> para Forex o la cuenta <strong>Pro</strong> si operas Índices y Oro sin comisiones.</p>
+          </div>
+          <div class="step">
+            <div class="step-head">
+              <span class="step-num">3</span>
+              <h3 class="h-card">Depósitos y Retiros Instantáneos</h3>
+            </div>
+            <p class="body-text" style="font-size:.9rem;padding-left:3.75rem">Utiliza USDT (Tether), tarjetas de crédito locales o monederos electrónicos con cero comisiones por parte del broker.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="section section--card" aria-labelledby="cta-title">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2 id="cta-title" class="h-section" style="max-width:20ch">¿Listo para operar con la mentalidad institucional?</h2>
+        <p class="lead">Únete bajo nuestra red oficial de AL-HADIQAINVEST. Abre tu cuenta hoy y comienza a operar con spread cero y condiciones premium.</p>
+        
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:.5rem">
+          <a class="btn btn--lg btn--pulse" href="https://one.justmarkets.link/a/kgi9s02uqu" target="_blank" rel="noopener noreferrer sponsored">
+            Abrir Cuenta Raw Spread <span class="arrow" aria-hidden="true">&rarr;</span>
+          </a>
+          <!-- Conexión directa hacia la landing page de unete -->
+          <a class="btn btn--lg btn--ghost" href="unete.html">
+            Únete a Nosotros
+          </a>
+        </div>
+      </div>
+
+      <div class="notice" style="margin-top:3.5rem">
+        <h2>Aviso Legal de Riesgo (Risk Warning)</h2>
+        <p>
+          Los CFD (Contratos por Diferencia) son instrumentos complejos y conllevan un alto riesgo de perder dinero rápidamente debido al apalancamiento. 
+          Una gran mayoría de las cuentas de inversores minoristas pierden dinero al operar con CFD. Debes considerar si comprendes cómo funcionan los CFD 
+          y si puedes permitirte asumir el alto riesgo de perder tu capital. El trading institucional (SMC) no garantiza rendimientos pasados ni futuros. 
+          <strong>No somos asesores financieros; la información provista es puramente educativa.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#" aria-label="AL-HADIQAINVEST, volver arriba">AL-HADIQA<span>INVEST</span></a>
+        <p>
+          Formando traders de élite. Enfoque analítico y probabilístico basado en 
+          Conceptos de Dinero Inteligente (Smart Money Concepts) y acción del precio pura.
+        </p>
+      </div>
+      
+      <nav aria-label="Enlaces rápidos del Footer">
+        <h2 class="footer-title">Ecosistema</h2>
+        <div class="footer-links">
+          <a href="#estrategias">Estrategias y Conceptos</a>
+          <a href="#resultados">Resultados y Spreads</a>
+          <!-- Conexión de Footer -->
+          <a href="unete.html">Únete a la Comunidad</a>
+          <a href="https://one.justmarkets.link/a/kgi9s02uqu" target="_blank" rel="noopener noreferrer sponsored">Abre tu Cuenta (Broker)</a>
+        </div>
+      </nav>
+
+      <nav aria-label="Enlaces legales del Footer">
+        <h2 class="footer-title">Transparencia</h2>
+        <div class="footer-links">
+          <a href="#">Términos y Condiciones</a>
+          <a href="#">Política de Privacidad</a>
+          <a href="#">Divulgación de Riesgos</a>
+          <a href="#">Contacto Soporte</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 <strong>AL-HADIQAINVEST</strong>. Todos los derechos reservados.</p>
+      <div class="footer-credit">
+        <span>Developed by <a href="#" style="color:#d1d5db;font-weight:600">Smith Business Solutions</a></span>
+        <span class="sep">|</span>
+        <span>Partnership con JustMarkets</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
