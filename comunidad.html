@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comunidad & Redes | AL-HADIQAINVEST — Eternos Aprendices del Trading</title>
+<meta name="description" content="Únete a la comunidad oficial de AL-HADIQAINVEST. Redes sociales, asistente broker, clases VIP, guías, copy trading y consejos financieros sin humos.">
+<style>
+  :root{
+    --bg:#070b12;
+    --bg2:#0c1220;
+    --card:#101827;
+    --card2:#141e30;
+    --gold:#d4af37;
+    --gold2:#f5d76e;
+    --green:#16c784;
+    --red:#ea3943;
+    --text:#e8edf5;
+    --muted:#9aa7b8;
+    --line:rgba(212,175,55,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+    background:var(--bg);color:var(--text);
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--gold);color:#000}
+
+  /* ============ BANNER PRINCIPAL ============ */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:70px 24px 90px;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(212,175,55,.16), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 85% 110%, rgba(22,199,132,.10), transparent 60%),
+      linear-gradient(180deg,#05080f 0%, #0a1020 55%, var(--bg) 100%);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(212,175,55,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(212,175,55,.05) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:10px;
+    border:1px solid var(--line);border-radius:50px;
+    padding:8px 20px;font-size:.8rem;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--gold2);background:rgba(212,175,55,.07);
+    animation:pulse 2.6s ease-in-out infinite;margin-bottom:26px;
+  }
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,175,55,.25)}50%{box-shadow:0 0 0 12px rgba(212,175,55,0)}}
+  .hero h1{
+    font-size:clamp(2.1rem,6vw,4.2rem);font-weight:800;line-height:1.08;
+    max-width:1000px;
+  }
+  .hero h1 .gold{
+    background:linear-gradient(92deg,#f5d76e 10%,#d4af37 45%,#fff2b0 70%,#b8912a 95%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    background-size:200% auto;animation:shine 4s linear infinite;
+  }
+  @keyframes shine{to{background-position:200% center}}
+  .hero p.sub{
+    margin-top:22px;max-width:720px;color:var(--muted);
+    font-size:clamp(1rem,2.2vw,1.2rem);line-height:1.7;
+  }
+  .hero-cta-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:38px}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 34px;border-radius:12px;font-weight:700;font-size:1rem;
+    text-decoration:none;transition:.3s cubic-bezier(.2,.9,.3,1.4);
+    border:1px solid transparent;cursor:pointer;
+  }
+  .btn-gold{
+    background:linear-gradient(135deg,#f5d76e,#d4af37 60%,#b8912a);
+    color:#0a0a0a;box-shadow:0 10px 34px rgba(212,175,55,.35);
+  }
+  .btn-gold:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 18px 46px rgba(212,175,55,.5)}
+  .btn-ghost{
+    border-color:var(--line);color:var(--gold2);background:rgba(212,175,55,.06);
+  }
+  .btn-ghost:hover{background:rgba(212,175,55,.14);transform:translateY(-4px)}
+  .ticker-wrap{
+    position:absolute;bottom:0;left:0;right:0;
+    border-top:1px solid var(--line);background:rgba(5,8,15,.85);backdrop-filter:blur(8px);
+    overflow:hidden;padding:12px 0;
+  }
+  .ticker{display:flex;gap:48px;white-space:nowrap;animation:scroll 26s linear infinite;width:max-content}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  .ticker span{font-size:.85rem;color:var(--muted);letter-spacing:1px}
+  .ticker b.up{color:var(--green)} .ticker b.dn{color:var(--red)}
+
+  section{padding:90px 24px;max-width:1200px;margin:0 auto}
+  .sec-head{text-align:center;margin-bottom:56px}
+  .sec-tag{font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .sec-head h2{font-size:clamp(1.7rem,4vw,2.6rem);margin-top:10px;font-weight:800}
+  .sec-head p{color:var(--muted);margin-top:12px;max-width:640px;margin-inline:auto;line-height:1.7}
+
+  /* ============ BENEFICIOS VIP ============ */
+  .vip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+  .vip-card{
+    background:linear-gradient(160deg,var(--card),var(--card2));
+    border:1px solid var(--line);border-radius:18px;padding:30px 24px;
+    transition:.35s;position:relative;overflow:hidden;
+  }
+  .vip-card::after{
+    content:"";position:absolute;top:-40%;right:-40%;width:120px;height:120px;
+    background:radial-gradient(circle,rgba(212,175,55,.14),transparent 70%);
+  }
+  .vip-card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 20px 44px rgba(0,0,0,.5)}
+  .vip-ico{
+    width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    font-size:1.5rem;background:rgba(212,175,55,.12);border:1px solid var(--line);margin-bottom:18px;
+  }
+  .vip-card h3{font-size:1.08rem;margin-bottom:10px}
+  .vip-card p{color:var(--muted);font-size:.92rem;line-height:1.6}
+
+  /* ============ REDES SOCIALES ============ */
+  .social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+  .social-card{
+    display:flex;align-items:center;gap:18px;text-decoration:none;color:var(--text);
+    background:linear-gradient(160deg,var(--card),var(--card2));
+    border:1px solid var(--line);border-radius:18px;padding:24px;
+    transition:.35s;position:relative;overflow:hidden;
+  }
+  .social-card::before{
+    content:"";position:absolute;inset:0;opacity:0;transition:.35s;
+    background:linear-gradient(135deg,var(--accent,rgba(212,175,55,.14)),transparent 60%);
+  }
+  .social-card:hover{transform:translateY(-6px) scale(1.02);border-color:var(--gold)}
+  .social-card:hover::before{opacity:1}
+  .soc-ico{
+    width:58px;height:58px;min-width:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+    background:var(--accent-bg);border:1px solid var(--line);
+  }
+  .social-card h3{font-size:1.05rem;position:relative}
+  .social-card small{color:var(--muted);display:block;margin-top:5px;position:relative;line-height:1.5}
+  .soc-arrow{margin-left:auto;color:var(--gold);font-size:1.2rem;position:relative}
+
+  /* ============ PERFIL PERSONAL ============ */
+  .profile{
+    background:linear-gradient(160deg,var(--card),var(--card2));
+    border:1px solid var(--line);border-radius:24px;
+    display:grid;grid-template-columns:1fr 1.4fr;gap:0;overflow:hidden;
+  }
+  @media(max-width:860px){.profile{grid-template-columns:1fr}}
+  .profile-left{
+    padding:48px 36px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 30% 20%, rgba(212,175,55,.14), transparent 60%);
+    border-right:1px solid var(--line);text-align:center;
+  }
+  @media(max-width:860px){.profile-left{border-right:none;border-bottom:1px solid var(--line)}}
+  .avatar{
+    width:150px;height:150px;border-radius:50%;
+    background:linear-gradient(135deg,#f5d76e,#b8912a);
+    display:flex;align-items:center;justify-content:center;
+    font-size:3rem;font-weight:800;color:#0a0a0a;
+    border:4px solid rgba(212,175,55,.3);box-shadow:0 0 44px rgba(212,175,55,.28);
+    margin-bottom:22px;
+  }
+  .profile-left h3{font-size:1.5rem}
+  .profile-left .role{color:var(--gold);font-size:.85rem;letter-spacing:2px;text-transform:uppercase;margin-top:6px}
+  .profile-right{padding:48px 40px}
+  .profile-right blockquote{
+    border-left:3px solid var(--gold);padding-left:20px;margin-bottom:26px;
+    font-size:1.12rem;line-height:1.75;color:var(--text);font-style:italic;
+  }
+  .comment{
+    background:rgba(212,175,55,.06);border:1px solid var(--line);border-radius:14px;
+    padding:16px 20px;margin-bottom:14px;font-size:.95rem;line-height:1.65;color:var(--muted);
+    transition:.3s;
+  }
+  .comment:hover{border-color:var(--gold);color:var(--text)}
+  .comment b{color:var(--gold2)}
+
+  /* ============ BOTÓN BROKER OBLIGATORIO ============ */
+  .broker-cta{
+    text-align:center;
+    background:
+      radial-gradient(ellipse 60% 80% at 50% 0%, rgba(22,199,132,.12), transparent 65%),
+      linear-gradient(160deg,var(--card),var(--card2));
+    border:1px solid var(--line);border-radius:24px;padding:64px 30px;
+  }
+  .broker-cta h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800}
+  .broker-cta h2 span{color:var(--green)}
+  .broker-cta p{color:var(--muted);max-width:620px;margin:16px auto 34px;line-height:1.7}
+  .btn-broker{
+    display:inline-flex;align-items:center;gap:12px;
+    background:linear-gradient(135deg,#1ee79a,#0da86b);
+    color:#04130c;font-weight:800;font-size:1.15rem;
+    padding:20px 48px;border-radius:14px;text-decoration:none;
+    box-shadow:0 12px 40px rgba(22,199,132,.35);
+    transition:.3s cubic-bezier(.2,.9,.3,1.4);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  .btn-broker:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 20px 54px rgba(22,199,132,.5)}
+  .fine{margin-top:18px;font-size:.78rem;color:var(--muted);letter-spacing:.4px}
+
+  /* ============ FOOTER ============ */
+  footer{
+    border-top:1px solid var(--line);padding:44px 24px;text-align:center;
+    color:var(--muted);font-size:.85rem;line-height:1.8;
+  }
+  footer b{color:var(--gold2)}
+
+  /* ============ BOT ASISTENTE ============ */
+  .bot-fab{
+    position:fixed;bottom:24px;right:24px;z-index:9999;
+    width:64px;height:64px;border-radius:50%;border:none;cursor:pointer;
+    background:linear-gradient(135deg,#f5d76e,#b8912a);
+    box-shadow:0 10px 34px rgba(212,175,55,.45);
+    font-size:1.7rem;display:flex;align-items:center;justify-content:center;
+    transition:.3s;animation:float 3.2s ease-in-out infinite;
+  }
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+  .bot-fab:hover{transform:scale(1.1)}
+  .bot-fab .dot{
+    position:absolute;top:4px;right:4px;width:15px;height:15px;border-radius:50%;
+    background:var(--green);border:2.5px solid var(--bg);animation:pulse 2s infinite;
+  }
+  .bot-window{
+    position:fixed;bottom:102px;right:24px;z-index:9999;
+    width:min(380px,calc(100vw - 32px));height:540px;max-height:calc(100vh - 140px);
+    background:var(--bg2);border:1px solid var(--gold);border-radius:20px;
+    display:flex;flex-direction:column;overflow:hidden;
+    box-shadow:0 24px 70px rgba(0,0,0,.7);
+    transform:translateY(24px) scale(.95);opacity:0;pointer-events:none;
+    transition:.35s cubic-bezier(.2,.9,.3,1.2);
+  }
+  .bot-window.open{transform:none;opacity:1;pointer-events:auto}
+  .bot-header{
+    padding:16px 18px;display:flex;align-items:center;gap:12px;
+    background:linear-gradient(135deg,rgba(212,175,55,.18),rgba(212,175,55,.06));
+    border-bottom:1px solid var(--line);
+  }
+  .bot-header .b-ava{
+    width:42px;height:42px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(135deg,#f5d76e,#b8912a);
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  }
+  .bot-header h4{font-size:.98rem}
+  .bot-header small{color:var(--green);font-size:.75rem;display:flex;align-items:center;gap:5px}
+  .bot-header small::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+  .bot-close{margin-left:auto;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer}
+  .bot-body{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
+  .bot-body::-webkit-scrollbar{width:5px}
+  .bot-body::-webkit-scrollbar-thumb{background:var(--gold);border-radius:4px}
+  .msg{max-width:85%;padding:12px 15px;border-radius:15px;font-size:.9rem;line-height:1.6;white-space:pre-line}
+  .msg.bot{background:var(--card2);border:1px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+  .msg.user{background:linear-gradient(135deg,#f5d76e,#d4af37);color:#0a0a0a;border-bottom-right-radius:4px;align-self:flex-end;font-weight:600}
+  .msg a{color:var(--gold2);font-weight:700}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 14px 10px}
+  .chip{
+    background:rgba(212,175,55,.08);border:1px solid var(--line);color:var(--gold2);
+    border-radius:50px;padding:7px 14px;font-size:.78rem;cursor:pointer;transition:.25s;
+  }
+  .chip:hover{background:var(--gold);color:#000}
+  .bot-input{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line)}
+  .bot-input input{
+    flex:1;background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:12px 14px;color:var(--text);font-size:.9rem;outline:none;
+  }
+  .bot-input input:focus{border-color:var(--gold)}
+  .bot-input button{
+    background:linear-gradient(135deg,#f5d76e,#b8912a);border:none;border-radius:10px;
+    width:46px;cursor:pointer;font-size:1.1rem;transition:.25s;
+  }
+  .bot-input button:hover{transform:scale(1.08)}
+  @media(max-width:520px){
+    .bot-window{right:16px;bottom:96px}
+    .bot-fab{right:16px;bottom:18px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== BANNER PRINCIPAL ==================== -->
+<header class="hero" id="inicio">
+  <div class="hero-badge">◆ Comunidad Oficial AL-HADIQAINVEST ◆</div>
+  <h1>Somos <span class="gold">Eternos Aprendices</span> del Mercado.<br>Aquí Operamos Sin Humos.</h1>
+  <p class="sub">No existe la técnica definitiva en las finanzas. Lo que existe es disciplina, gestión de riesgo y una comunidad que crece junta. Únete, aprende de verdad y opera con nosotros paso a paso.</p>
+  <div class="hero-cta-row">
+    <a class="btn btn-gold" href="https://one.justmarkets.link/a/kgi9s02uqu" target="_blank" rel="noopener">📈 Crear Cuenta con JustMarkets</a>
+    <a class="btn btn-ghost" href="https://t.me/gamerzoneAI" target="_blank" rel="noopener">✈️ Unirse a la Comunidad VIP</a>
+  </div>
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>XAUUSD <b class="up">▲ 2 348.20</b></span>
+      <span>EUR/USD <b class="dn">▼ 1.0842</b></span>
+      <span>BTC/USD <b class="up">▲ 97 410</b></span>
+      <span>GBP/JPY <b class="up">▲ 192.44</b></span>
+      <span>US100 <b class="dn">▼ 19 862</b></span>
+      <span>ETH/USD <b class="up">▲ 3 512</b></span>
+      <span>USOIL <b class="up">▲ 78.35</b></span>
+      <span>XAUUSD <b class="up">▲ 2 348.20</b></span>
+      <span>EUR/USD <b class="dn">▼ 1.0842</b></span>
+      <span>BTC/USD <b class="up">▲ 97 410</b></span>
+      <span>GBP/JPY <b class="up">▲ 192.44</b></span>
+      <span>US100 <b class="dn">▼ 19 862</b></span>
+      <span>ETH/USD <b class="up">▲ 3 512</b></span>
+      <span>USOIL <b class="up">▲ 78.35</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== BENEFICIOS VIP ==================== -->
+<section id="vip">
+  <div class="sec-head">
+    <div class="sec-tag">Beneficios Exclusivos</div>
+    <h2>Al Integrarte al Proyecto Recibes</h2>
+    <p>En nuestros grupos y comunidades oficiales no solo hay charla: hay formación real, señales y acompañamiento.</p>
+  </div>
+  <div class="vip-grid">
+    <div class="vip-card"><div class="vip-ico">📡</div><h3>Información VIP</h3><p>Alertas de mercado, calendario económico comentado y análisis de alto impacto antes de que el resto lo vea.</p></div>
+    <div class="vip-card"><div class="vip-ico">🎓</div><h3>Clases en Vivo</h3><p>Sesiones semanales de Smart Money Concepts, estructura de mercado, gestión de riesgo y psicología del trader.</p></div>
+    <div class="vip-card"><div class="vip-ico">📚</div><h3>Guías Descargables</h3><p>Manuales paso a paso: desde crear tu primera cuenta hasta ejecutar tu primer trade con plan escrito.</p></div>
+    <div class="vip-card"><div class="vip-ico">🔄</div><h3>Copy Trading</h3><p>Replica operativas del equipo con gestión de riesgo transparente y resultados auditables. Si tú ganas, yo gano.</p></div>
+    <div class="vip-card"><div class="vip-ico">🧠</div><h3>Consejos Financieros</h3><p>Educación en finanzas personales: ahorro, presupuesto, disciplina patrimonial y libertad financiera desde cero.</p></div>
+  </div>
+</section>
+
+<!-- ==================== REDES SOCIALES ==================== -->
+<section id="redes">
+  <div class="sec-head">
+    <div class="sec-tag">Síguenos en Todas Partes</div>
+    <h2>Nuestras Redes Oficiales</h2>
+    <p>Contenido diario de trading, finanzas y educación. Verifica que es la cuenta oficial antes de seguir.</p>
+  </div>
+  <div class="social-grid">
+
+    <a class="social-card" style="--accent:rgba(0,0,0,.5);--accent-bg:linear-gradient(135deg,#25F4EE,#FE2C55)"
+       href="https://www.tiktok.com/@alhadiqa.capital" target="_blank" rel="noopener">
+      <div class="soc-ico" style="color:#fff;font-weight:900">TT</div>
+      <div><h3>TikTok</h3><small>@alhadiqa.capital<br>Clips diarios: análisis, SMC y momentos del mercado.</small></div>
+      <span class="soc-arrow">→</span>
+    </a>
+
+    <a class="social-card" style="--accent:rgba(255,0,0,.35);--accent-bg:linear-gradient(135deg,#FF0033,#CC0000)"
+       href="https://www.youtube.com/@AL-HADIQAINVEST" target="_blank" rel="noopener">
+      <div class="soc-ico" style="color:#fff">▶</div>
+      <div><h3>YouTube</h3><small>@AL-HADIQAINVEST<br>Clases completas, manifiestos y estrategias paso a paso.</small></div>
+      <span class="soc-arrow">→</span>
+    </a>
+
+    <a class="social-card" style="--accent:rgba(24,119,242,.35);--accent-bg:linear-gradient(135deg,#1877F2,#0e4faf)"
+       href="https://www.facebook.com/smith.zambrano.5815" target="_blank" rel="noopener">
+      <div class="soc-ico" style="color:#fff;font-weight:900">f</div>
+      <div><h3>Facebook</h3><small>Smith Zambrano<br>Comunidad, publicaciones y contacto directo.</small></div>
+      <span class="soc-arrow">→</span>
+    </a>
+
+    <a class="social-card" style="--accent:rgba(37,211,102,.35);--accent-bg:linear-gradient(135deg,#25D366,#128C7E)"
+       href="https://wa.me/584220273766?text=Hola%2C%20quiero%20unirme%20a%20AL-HADIQAINVEST%20y%20recibir%20informaci%C3%B3n%20VIP" target="_blank" rel="noopener">
+      <div class="soc-ico" style="color:#fff;font-weight:900">✆</div>
+      <div><h3>WhatsApp</h3><small>+58 422 0273766 (Venezuela 🇻🇪)<br>Atención directa y soporte a la comunidad.</small></div>
+      <span class="soc-arrow">→</span>
+    </a>
+
+    <a class="social-card" style="--accent:rgba(0,136,204,.4);--accent-bg:linear-gradient(135deg,#2AABEE,#1d7fb8)"
+       href="https://t.me/gamerzoneAI" target="_blank" rel="noopener">
+      <div class="soc-ico" style="color:#fff;font-weight:900">✈</div>
+      <div><h3>Telegram Oficial</h3><small>t.me/gamerzoneAI<br>⭐ Comunidad oficial: señales VIP, clases y copy trading.</small></div>
+      <span class="soc-arrow">→</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- ==================== PERFIL PERSONAL ==================== -->
+<section id="perfil">
+  <div class="sec-head">
+    <div class="sec-tag">Quién Está Detrás del Proyecto</div>
+    <h2>El Rosto de AL-HADIQAINVEST</h2>
+  </div>
+  <div class="profile">
+    <div class="profile-left">
+      <div class="avatar">SZ</div>
+      <h3>Smith Zambrano</h3>
+      <div class="role">Fundador · Trader · Educador Financiero</div>
+    </div>
+    <div class="profile-right">
+      <blockquote>"No vendo humo ni prometas de lamborghinis. Vendo lo que nadie te dice: que esto es difícil, que requiere años de disciplina… y que vale totalmente la pena si lo haces bien."</blockquote>
+      <div class="comment">💬 <b>Sobre el trading:</b> "Perderé más operaciones de las que ganaré, y aún así seré rentable. El secreto no es acertar: es gestionar el riesgo cuando fallas."</div>
+      <div class="comment">💬 <b>Sobre la comunidad:</b> "Empecé este proyecto para ayudar a miles de personas empezando por mí. Si mi aprendizaje te ahorra un año de errores, ya ganamos."</div>
+      <div class="comment">💬 <b>Sobre las finanzas:</b> "No existe la técnica definitiva. El mercado evoluciona todos los días y nosotros también. Somos eternos aprendices."</div>
+      <div class="comment">💬 <b>Sobre el broker:</b> "Operamos exclusivamente con JustMarkets porque es donde yo opero y donde te puedo acompañar de cerca. Si tú ganas, yo gano. Punto."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA BROKER ==================== -->
+<section id="broker">
+  <div class="broker-cta">
+    <div class="sec-tag">Requisito para Operar con Nosotros</div>
+    <h2>Tu Cuenta debe estar bajo nuestra red de <span>JustMarkets</span></h2>
+    <p>Para recibir las señales VIP, el copy trading y el acompañamiento directo, tu cuenta debe abrirse a través de nuestro enlace oficial. Así el proyecto se sostiene y seguimos creando contenido gratuito. <b style="color:var(--gold2)">Si tú ganas, yo gano.</b></p>
+    <a class="btn-broker" href="https://one.justmarkets.link/a/kgi9s02uqu" target="_blank" rel="noopener">🚀 Abrir mi Cuenta en JustMarkets Ahora</a>
+    <p class="fine">✔ Regulado · ✔ Spreads desde 0.0 pips · ✔ Retiros el mismo día · ✔ Soporte en español</p>
+  </div>
+</section>
+
+<footer>
+  <p><b>AL-HADIQAINVEST</b> — Trading & Educación Financiera</p>
+  <p>Somos eternos aprendices. No existe la técnica definitiva en las finanzas. Aquí estamos sin humos.</p>
+  <p>⚠️ Aviso de riesgo: Los CFD son instrumentos complejos con alto riesgo de pérdida rápida de capital. No somos asesores financieros; la información es puramente educativa.</p>
+</footer>
+
+<!-- ==================== BOT ASISTENTE ==================== -->
+<button class="bot-fab" id="botFab" aria-label="Abrir asistente">🤖<span class="dot"></span></button>
+<div class="bot-window" id="botWindow">
+  <div class="bot-header">
+    <div class="b-ava">🤖</div>
+    <div><h4>AL-HADIQA Assistant</h4><small>En línea · Asistente Broker</small></div>
+    <button class="bot-close" id="botClose">✕</button>
+  </div>
+  <div class="bot-body" id="botBody"></div>
+  <div class="chips" id="botChips"></div>
+  <div class="bot-input">
+    <input type="text" id="botInput" placeholder="Escribe tu pregunta aquí…" autocomplete="off">
+    <button id="botSend" aria-label="Enviar">➤</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const fab=document.getElementById('botFab'),win=document.getElementById('botWindow'),
+        close=document.getElementById('botClose'),body=document.getElementById('botBody'),
+        chips=document.getElementById('botChips'),input=document.getElementById('botInput'),
+        send=document.getElementById('botSend');
+
+  const LINKS={
+    broker:'<a href="https://one.justmarkets.link/a/kgi9s02uqu" target="_blank">👉 Abrir cuenta en JustMarkets</a>',
+    telegram:'<a href="https://t.me/gamerzoneAI" target="_blank">👉 Unirse al Telegram oficial</a>',
+    whatsapp:'<a href="https://wa.me/584220273766" target="_blank">👉 Escribir por WhatsApp (+58 Venezuela)</a>',
+    youtube:'<a href="https://www.youtube.com/@AL-HADIQAINVEST" target="_blank">👉 Canal de YouTube</a>',
+    tiktok:'<a href="https://www.tiktok.com/@alhadiqa.capital" target="_blank">👉 TikTok @alhadiqa.capital</a>',
+    facebook:'<a href="https://www.facebook.com/smith.zambrano.5815" target="_blank">👉 Facebook oficial</a>'
+  };
+
+  const qa=[
+    {k:['hola','buenas','hey','hi'],a:'¡Saludos, trader! 👋 Soy el asistente oficial de AL-HADIQAINVEST. Estoy aquí para guiarte paso a paso: crear tu cuenta, unirte a la comunidad VIP o entender conceptos de trading. ¿Por dónde empezamos?'},
+    {k:['cuenta','justmarkets','broker','abrir','registr'],a:'Para operar con nosotros necesitas una cuenta en JustMarkets bajo nuestro enlace oficial. Es rápido y gratis:\n\n1️⃣ Entra aquí: '+LINKS.broker+'\n2️⃣ Completa el registro con tus datos reales.\n3️⃣ Verifica tu identidad.\n4️⃣ Fondea con el monto que puedas permitirte perder (recomendamos empezar pequeño).\n\n⚠️ Recuerda: cuenta que NO sea creada con nuestro enlace NO tendrá acceso a señales VIP ni copy trading. Si tú ganas, yo gano.'},
+    {k:['telegram','comunidad','vip','grupo','unirme','señales'],a:'Nuestra comunidad oficial vive en Telegram. Al unirte recibes:\n\n📡 Información VIP y alertas de mercado\n🎓 Clases en vivo semanales\n📚 Guías descargables\n🔄 Acceso al copy trading\n🧠 Consejos financieros\n\n'+LINKS.telegram+'\n\n⚠️ Es gratis unirse, pero para operar las señales necesitas tu cuenta JustMarkets con nuestro enlace.'},
+    {k:['whatsapp','contacto','hablar','numero','teléfono','soporte'],a:'Puedes contactarnos directamente por WhatsApp. Atención personalizada de Smith Zambrano y el equipo:\n\n'+LINKS.whatsapp+'\n\n🇻🇪 Código de Venezuela: +58 · Número: 422 0273766'},
+    {k:['copy trading','copiar','replica'],a:'El copy trading te permite replicar las operativas del equipo automáticamente:\n\n✅ Gestión de riesgo transparente (máx. 1-2% por operación)\n✅ Resultados auditables, sin editar capturas\n✅ Ideal si no tienes tiempo de analizar\n\nRequisito: cuenta JustMarkets creada con nuestro enlace.\n\n'+LINKS.broker},
+    {k:['smc','smart money','order block','liquidez','estructura'],a:'Smart Money Concepts (SMC) es leer el mercado como lo hacen los institucionales:\n\n• Estructura de mercado: máximos y mínimos que definen tendencia.\n• Order Blocks: zonas donde las instituciones acumularon posición.\n• Liquidez: los stops de los minoristas son el combustible del precio.\n• FVG (Fair Value Gaps): desequilibrios que el precio suele mitigar.\n\nTenemos una guía PDF gratis en la web principal y clases completas en YouTube: '+LINKS.youtube},
+    {k:['riesgo','gestión','lotaje','cuanto arriesgar','1%','2%'],a:'Regla de oro del proyecto:\n\n🛡️ Arriesga máximo 1-2% de tu cuenta por operación.\n🛡️ Busca siempre un ratio riesgo:beneficio mínimo de 1:2.\n🛡️ Un día malo = cerrar plataforma y estudiar el error.\n\nEl mercado siempre estará ahí mañana. Tu capital no siempre.'},
+    {k:['redes','tiktok','youtube','facebook','seguir'],a:'Síguenos en todas partes para contenido diario:\n\n'+LINKS.tiktok+'\n'+LINKS.youtube+'\n'+LINKS.facebook+'\n'+LINKS.telegram},
+    {k:['quien','smith','fundador','perfil','quien eres'],a:'AL-HADIQAINVEST fue fundado por Smith Zambrano, trader y educador financiero venezolano. Su filosofía:\n\n"Somos eternos aprendices. No existe la técnica definitiva en las finanzas. Aquí estamos sin humos."\n\nPuedes conocerlo en el perfil de esta página o en Facebook: '+LINKS.facebook},
+    {k:['gratis','pago','costo','cuanto cuesta','precio'],a:'📚 Unirse a la comunidad Telegram es GRATIS e incluye contenido educativo.\n\n💎 Las señales VIP, clases avanzadas y copy trading requieren tu cuenta JustMarkets creada con nuestro enlace oficial — es la forma en que el proyecto se sostiene sin cobrarte membresía:\n\n'+LINKS.broker},
+    {k:['gracias','thank','genial','perfecto'],a:'¡Con gusto! 🙌 Recuerda: disciplina, gestión de riesgo y paciencia. Nos vemos en la comunidad. '+LINKS.telegram},
+    {k:['adios','chao','bye','hasta luego'],a:'¡Éxitos en tu camino, trader! 🚀 "El mercado premia la disciplina, no la suerte." Vuelve cuando quieras.'},
+    {k:['estafa','confiable','legal','seguro','real'],a:'Pregunta inteligente ✅. JustMarkets está regulado multijurisdiccionalmente (FCA, CySEC, FSA, FSC), con fondos segregados y protección contra saldo negativo.\n\nNosotros no manejamos tu dinero NUNCA: operas en tu propia cuenta. Solo educamos y compartimos análisis. Y recuerda: ninguna estrategia garantiza ganancias — por eso insistimos en el riesgo educado.'},
+    {k:['aprender','empezar','desde cero','principiante','novato'],a:'Ruta del principiante en AL-HADIQAINVEST:\n\n1️⃣ Mira el manifiesto en YouTube: '+LINKS.youtube+'\n2️⃣ Únete al Telegram gratis: '+LINKS.telegram+'\n3️⃣ Abre tu cuenta demo en JustMarkets: '+LINKS.broker+'\n4️⃣ Practica con la guía SMC y el checklist de la web principal.\n5️⃣ Cuando tengas 2 meses rentables en demo, opera real con capital pequeño.\n\nSin prisa, pero sin pausa. Eternos aprendices. 📖'}
+  ];
+
+  const defaultA='Buena pregunta 🤔. Puedo ayudarte con:\n\n• Cómo crear tu cuenta en JustMarkets\n• Unirte al Telegram VIP y WhatsApp\n• Qué es el copy trading y las señales\n• Conceptos de SMC y gestión de riesgo\n\nTambién puedes escribirnos directo: '+LINKS.whatsapp;
+
+  function addMsg(text,who){
+    const d=document.createElement('div');d.className='msg '+who;d.innerHTML=text;
+    body.appendChild(d);body.scrollTop=body.scrollHeight;
+  }
+  function answer(q){
+    const norm=q.toLowerCase();
+    for(const item of qa){ if(item.k.some(k=>norm.includes(k))) return item.a; }
+    return defaultA;
+  }
+  function renderChips(){
+    chips.innerHTML='';
+    ['¿Cómo abro mi cuenta?','Unirme al Telegram VIP','¿Qué es el copy trading?','Gestión de riesgo','Contactar por WhatsApp'].forEach(t=>{
+      const c=document.createElement('button');c.className='chip';c.textContent=t;
+      c.onclick=()=>{input.value=t;submit();};
+      chips.appendChild(c);
+    });
+  }
+  function submit(){
+    const q=input.value.trim();if(!q)return;
+    addMsg(q.replace(/</g,'&lt;'),'user');input.value='';
+    setTimeout(()=>addMsg(answer(q),'bot'),450);
+  }
+  function greet(){
+    addMsg('¡Bienvenido a <b>AL-HADIQAINVEST</b>! 👋\n\nSoy tu asistente broker. Si es tu primera vez aquí, puedo guiarte para:\n\n1. Crear tu cuenta en JustMarkets (requisito para operar con nosotros)\n2. Unirte a la comunidad VIP en Telegram\n3. Entender trading desde cero\n\nElige una opción abajo o escríbeme libremente.','bot');
+    renderChips();
+  }
+
+  fab.onclick=()=>{win.classList.toggle('open');if(win.classList.contains('open')&&!body.children.length)greet();};
+  close.onclick=()=>win.classList.remove('open');
+  send.onclick=submit;
+  input.addEventListener('keydown',e=>{if(e.key==='Enter')submit();});
+})();
+</script>
+</body>
+</html>
